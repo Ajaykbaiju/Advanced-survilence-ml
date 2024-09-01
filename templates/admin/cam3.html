@@ -1,0 +1,22 @@
+{% block content %}
+{% load static %}
+{% include 'admin/header.html' %}
+<!-- Form Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Cam3 Visuals</h6>
+                <form action="cam3" method="post" enctype="multipart/form-data">
+                    
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Upload</label>
+                        <input type="file" class="form-control" name="image" id="exampleInputPassword1">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Live</button>
+                </form>
+            </div>
+        </div>
+       
+    {% endblock %}

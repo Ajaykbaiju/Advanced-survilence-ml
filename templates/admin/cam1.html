@@ -1,0 +1,48 @@
+{% block content %}
+{% load static %}
+{% include 'admin/header.html' %}
+
+{% if result %}
+<script>
+    alert('{{result}}');
+</script>
+{% endif %}
+
+
+<!-- Form Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Cam1 Visuals</h6>
+                <!--<form action="cam1" method="post" enctype="multipart/form-data">
+                    
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Upload</label>
+                        <input type="file" class="form-control" name="image" id="exampleInputPassword1">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Live</button>
+                </form>-->
+                {% if result %}
+                <img src="./media/abnormal_frame.jpg" height="480" width="640"><br>
+                {% endif %}
+                {% if detected_faces %}
+                <img src="./media/tracked_frame.jpg" height="480" width="640"><br>
+                {% for i in detected_faces %}
+                <div>
+                    <h2>Suspects detected: {{i.label}} </h2><br>
+                </div>
+               
+                {% endfor %}
+               
+                {% endif %}
+                <a class="btn btn-primary" href="http://127.0.0.1:8000/start_abnormal_activity">Live</a>
+                <a class="btn btn-primary" href="http://127.0.0.1:8000/cam2">upload Video</a>
+                {% if result %}
+                <a class="btn btn-primary" href="http://127.0.0.1:8000/start_tracking">Track</a>
+                {% endif %}
+            </div>
+        </div>
+       
+    {% endblock %}

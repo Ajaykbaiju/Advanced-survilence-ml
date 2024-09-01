@@ -1,0 +1,92 @@
+{% block content %}
+{% load static %}
+{% include 'header.html' %}
+{% if msg %}
+<script>
+    alert('{{msg}}');
+</script>
+{% endif %}
+
+{% if msg1 %}
+<script>
+    alert('{{msg1}}');
+</script>
+{% endif %}
+  <!-- contact section -->
+  
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+  /* CSS for contact section */
+  .contact_section {
+    background-color: #f8f9fa; /* Background color */
+    padding: 50px 0; /* Padding for top and bottom */
+  }
+
+  .contact_form-container {
+    background-color: #fff; /* Form container background color */
+    padding: 30px; /* Padding inside the form container */
+    border-radius: 10px; /* Rounded corners for the form container */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Box shadow for the form container */
+  }
+
+  .contact_image {
+    background-image: url('path/to/image.jpg'); /* Image background */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+    border-radius: 10px; /* Rounded corners for the image container */
+    height: 100%; /* Ensure the image container fills its parent */
+  }
+</style>
+  <!-- contact section -->
+  
+  <section class="contact_section layout_padding">
+    <div class="container">
+      <div class="row justify-content-center"><!-- Added justify-content-center class -->
+        <div class="col-lg-12"><!-- Form takes up full width on large screens -->
+       <br>
+       
+            <form action="http://127.0.0.1:8000/addregister" method="post">
+                {% csrf_token %}
+           <h1>Register</h1>
+
+            <div class="form-group">
+              <label for="stationName">Station Name</label>
+                <input type="text" class="form-control" name="st_name" id="stationName" placeholder="Station Name">
+                
+            </div>
+
+        
+
+            <div class="form-group">
+              <label for="stationName">Station Id</label>
+                <input type="text" class="form-control" name="st_id" id="st_id" placeholder="Station Id">
+                
+            </div>
+
+
+
+            <div class="form-group">
+              <label for="stationName">Password</label>
+                <input type="text" class="form-control" name="password" id="password" placeholder="Password">
+                
+            </div>
+
+            <div class="form-group">
+              <label for="stationName">Confirm Password</label>
+                <input type="text" class="form-control" name="cpassword" id="cpassword" placeholder=" Confirm Password">
+                
+            </div>
+
+        
+            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
+            <p class="text-center mb-0">Already have an Account? <a href="http://127.0.0.1:8000/login">Sign In</a></p>
+        </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end contact section -->
+  {% include 'footer.html' %}
+{% endblock %}
